@@ -1110,7 +1110,7 @@ func receive(p io.ReadWriteCloser) {
 					/**
 					 * Send to decode
 					 */
-					log.Debug("Message to decode -->", string(message[:payloadlen+5]), "<-- ")
+					log.Debug("Message to decode -->", string(message[:payloadlen+5]), "<-- ", payloadlen+5, "bytes")
 					decode(payloadlen+5, message[:payloadlen+5])
 				}
 			}
