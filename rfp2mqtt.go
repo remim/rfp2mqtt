@@ -1326,14 +1326,6 @@ func loadSensors() {
 			if err != nil {
 				log.Info("ERROR while adding sensor in topic cache, already defined ", id, " !!!")
 			}
-		} else {
-			/**
-			 * Si pas de topic défini, on prend le paramètre name
-			 */
-			err := sensorsTopicCache.Add(id, name, cache.NoExpiration)
-			if err != nil {
-				log.Info("ERROR while adding sensor in topic cache, already defined ", id, " !!!")
-			}
 
 		}
 
@@ -1419,7 +1411,8 @@ func sensorName(sensorID string) string {
 	if found {
 		r = foo.(string)
 	} else {
-		r = "NULL"
+		r = sensorID
+		log.Info("Fail to find sensorId : >", sensorID, "<")
 	}
 
 	return r
@@ -1436,7 +1429,6 @@ func sensorTopic(sensorID string) string {
 		r = foo.(string)
 	} else {
 		r = "NULL"
-		log.Info("Fail to find sensorId : >", sensorID, "<")
 	}
 
 	return r
