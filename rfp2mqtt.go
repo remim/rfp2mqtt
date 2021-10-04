@@ -481,7 +481,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/x10"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/x10"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -504,7 +504,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/chacon"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/chacon"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -528,7 +528,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/visonic"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/visonic"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -559,7 +559,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/rts"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/rts"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -589,7 +589,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/th"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/th"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -627,7 +627,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/thpa"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/thpa"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -662,7 +662,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/wind"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/wind"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -694,7 +694,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/uv"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/uv"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -728,7 +728,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/owl"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/owl"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -767,7 +767,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/rain"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/rain"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -800,7 +800,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/x2dcontact"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/x2dcontact"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -835,7 +835,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/x2dshutter"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/x2dshutter"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -871,7 +871,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/null"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/null"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -903,7 +903,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/linky"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/linky"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -940,7 +940,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/fs20"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/fs20"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -966,7 +966,7 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brokermqtt.topicroot") + "/" + sensor.Ref + "/jamming"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/jamming"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
@@ -1597,8 +1597,8 @@ func init() {
 	conf.SetDefault("rfplayer.minread", "10")                // Minimum read count
 	conf.SetDefault("rfplayer.rx", "true")                   // Activate Read data Received
 	conf.SetDefault("rfplayer.jamming", "10")                // Level of Jamming
-	conf.SetDefault("brokermqtt.protocol", "tls")
-	conf.SetDefault("brokermqtt.address", "127.0.0.1")
+	conf.SetDefault("brockermqtt.protocol", "tls")
+	conf.SetDefault("brockermqtt.address", "127.0.0.1")
 	conf.SetDefault("brockermqtt.port", "1883")
 	conf.SetDefault("brockermqtt.username", "username")
 	conf.SetDefault("brockermqtt.password", "password")
