@@ -609,10 +609,6 @@ func decode(l int, m []byte) {
 		jsonString = jsonString + "\" , \"flowbatt\": \"" + testBit(m[19], 0) // low batt flag
 		jsonString = jsonString + "\" , \"st\": \"" + sensor.SubType
 		jsonString = jsonString + "\" }"
-		//		} else {
-		//			log.Info("RFLevel=", int8(m[8]), ", FloorNoise=", int8(m[9]), ", RFQuality=", m[10], ", Protocol=", m[11], ", InfosType=", m[12])
-		//			log.Info("Topic problem : topic=>", sensor.Topic, "<, len=", len(topicSplit), ", Sensor Ref:>", sensor.Ref, "<")
-		//		}
 
 	case infosType5:
 		log.Debug(", OREGON Atmo pressure")
