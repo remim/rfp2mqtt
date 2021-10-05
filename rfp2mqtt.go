@@ -480,7 +480,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
 		sensor.Protocol = "X10"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
@@ -503,7 +503,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = "1-" + strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[15:])), 10)
 		sensor.Protocol = "CHACON"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
@@ -527,7 +527,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = "2-" + strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[15:])), 10)
 		sensor.Protocol = "VISONIC"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
@@ -558,7 +558,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = "3-" + strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[15:])), 10)
 		sensor.Protocol = "RTS"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
@@ -588,7 +588,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = "4-" + strconv.FormatUint(uint64(touint32(binary.LittleEndian.Uint16(m[15:]), binary.LittleEndian.Uint16(m[17:]))), 10)
 		sensor.Protocol = "OREGON"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
@@ -626,7 +626,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = "5-" + strconv.FormatUint(uint64(touint32(binary.LittleEndian.Uint16(m[15:]), binary.LittleEndian.Uint16(m[17:]))), 10)
 		sensor.Protocol = "OREGON"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
@@ -661,7 +661,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = "6-" + strconv.FormatUint(uint64(touint32(binary.LittleEndian.Uint16(m[15:]), binary.LittleEndian.Uint16(m[17:]))), 10)
 		sensor.Protocol = "OREGON"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
@@ -693,7 +693,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = "7-" + strconv.FormatUint(uint64(touint32(binary.LittleEndian.Uint16(m[15:]), binary.LittleEndian.Uint16(m[17:]))), 10)
 		sensor.Protocol = "OREGON"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
@@ -727,7 +727,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = "8-" + strconv.FormatUint(uint64(touint32(binary.LittleEndian.Uint16(m[15:]), binary.LittleEndian.Uint16(m[17:]))), 10)
 		sensor.Protocol = "OWL"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
@@ -766,7 +766,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = "9-" + strconv.FormatUint(uint64(touint32(binary.LittleEndian.Uint16(m[15:]), binary.LittleEndian.Uint16(m[17:]))), 10)
 		sensor.Protocol = "OREGON"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
@@ -799,7 +799,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = "10-" + strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[15:])), 10)
 		sensor.Protocol = "X2D"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
@@ -834,7 +834,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = "11-" + strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[15:])), 10)
 		sensor.Protocol = "X2D"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
@@ -870,7 +870,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = "12-" + strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[15:])), 10)
 		sensor.Protocol = "DEPRECATED"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
@@ -902,7 +902,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = "13-" + strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[15:])), 10)
 		sensor.Protocol = "LINKY"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
@@ -939,7 +939,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = "14-" + strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[15:])), 10)
 		sensor.Protocol = "FS20"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
@@ -965,7 +965,7 @@ func decode(l int, m []byte) {
 
 		sensor.Ref = "15-" + strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[15:])), 10)
 		sensor.Protocol = "JAMMING"
-		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
