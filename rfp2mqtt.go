@@ -596,7 +596,7 @@ func decode(l int, m []byte) {
 		}
 		log.Debug(", topic=", sensor.Topic)
 
-		tempString := strconv.FormatFloat(float64(uint64(binary.LittleEndian.Uint16(m[21:])))*0.1, 'f', 1, 64)
+		tempString := strconv.FormatFloat(float64(int16(binary.LittleEndian.Uint16(m[21:])))*0.1, 'f', 1, 64)
 		humiString := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[23:])), 10)
 
 		topicSplit := strings.Split(sensor.Topic, "/")
@@ -634,7 +634,7 @@ func decode(l int, m []byte) {
 		}
 		log.Debug(", topic=", sensor.Topic)
 
-		tempString := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[21:])), 10)
+		tempString := strconv.FormatFloat(float64(int16(binary.LittleEndian.Uint16(m[21:])))*0.1, 'f', 1, 64)
 		humiString := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[23:])), 10)
 		pressureString := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[25:])), 10)
 
