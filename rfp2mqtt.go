@@ -379,6 +379,9 @@ type Config struct {
 		Timeout           int    `yaml:"timeout"`
 		Minread           int    `yaml:"minread"`
 		RTSCTSFlowControl bool   `yaml:"rtsctsflowcontrol"`
+		Initialisation    []struct {
+			Cmd string `yaml:"cmd"`
+		} `yaml:"initialisation"`
 	} `yaml:"rfplayer"`
 	Initialisation    []struct {
 		Cmd string `yaml:"cmd"`
@@ -1744,13 +1747,25 @@ func main() {
 	 * Default configuration of RFPLAYER dongle by sending command in config.yml
 	 */
 	tData := []byte("")
-	for i := 0; i < len(config.Initialisation); i++ {
-		tData = []byte(config.Initialisation[i].Cmd + "\x00")
-		count, err := rfpPort.Write(tData)
-		if err != nil {
-			log.Error("Error writing to serial port: ", err)
-		} else {
-			log.Debug("Wrote ", count, " bytes : ", string(tData[:]))
+	if len(config.Rfplayer.Initialisation) > 0 {
+		for i := 0; i < len(config.Rfplayer.Initialisation); i++ {
+			tData = []byte(config.Rfplayer.Initialisation[i].Cmd + "\x00")
+			count, err := rfpPort.Write(tData)
+			if err != nil {
+				log.Error("Error writing to serial port: ", err)
+			} else {
+				log.Debug("Wrote ", count, " bytes : ", string(tData[:]))
+			}
+		}
+	} else if len(config.Initialisation) > 0 {
+		for i := 0; i < len(config.Initialisation); i++ {
+			tData = []byte(config.Initialisation[i].Cmd + "\x00")
+			count, err := rfpPort.Write(tData)
+			if err != nil {
+				log.Error("Error writing to serial port: ", err)
+			} else {
+				log.Debug("Wrote ", count, " bytes : ", string(tData[:]))
+			}
 		}
 	}
 
