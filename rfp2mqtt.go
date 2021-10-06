@@ -967,12 +967,16 @@ func decode(l int, m []byte) {
 		jsonString = jsonString + "\" }"
 
 	case infosType15:
-		log.Debug(", JAMMING")
+		log.Debug(", Edisio")
 		log.Debug(", SubType=", binary.LittleEndian.Uint16(m[13:]))
 		log.Debug(", Id=", binary.LittleEndian.Uint32(m[15:]))
+		log.Debug(", qualifier=", binary.LittleEndian.Uint16(m[19:]))
+		log.Debug(", MID=", binary.LittleEndian.Uint16(m[21:] & 0x00FF))
+		log.Debug(", BL=", binary.LittleEndian.Uint16(m[22:] & 0x00FF))
+		log.Debug(", Data=", binary.LittleEndian.Uint16(m[23:]))
 
 		sensor.Ref = "15-" + strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[15:])), 10)
-		sensor.Protocol = "JAMMING"
+		sensor.Protocol = "EDISIO"
 		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
@@ -981,15 +985,21 @@ func decode(l int, m []byte) {
 		}
 		log.Debug(", topic=", sensor.Topic)
 
-		subtypeString := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
+		qualifierString := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[19:])), 10)
+		modelString := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[21:] & 0x00FF)), 10)
+		battLvlString := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[22:] & 0x00FF)), 10)
+		dataString := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[23:])), 10)
 
 		topicSplit := strings.Split(sensor.Topic, "/")
 
 		jsonString = "{ \"tc\": \"" + timecodeString
 		jsonString = jsonString + "\" , \"n\": \"" + topicSplit[1]
 		jsonString = jsonString + "\" , \"r\": \"" + sensor.Ref
-		jsonString = jsonString + "\" , \"s\": \"" + subtypeString
 		jsonString = jsonString + "\" , \"st\": \"" + sensor.SubType
+		jsonString = jsonString + "\" , \"q\": \"" + qualifierString
+		jsonString = jsonString + "\" , \"mid\": \"" + modelString
+		jsonString = jsonString + "\" , \"bl\": \"" + battLvlString
+		jsonString = jsonString + "\" , \"d\": \"" + dataString
 		jsonString = jsonString + "\" }"
 
 	}
