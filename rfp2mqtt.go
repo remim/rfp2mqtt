@@ -497,7 +497,7 @@ func decode(l int, m []byte) {
 		jsonString = jsonString + "\" }"
 
 	case infosType1:
-		log.Debug(", CHACON ...")
+		log.Debug(", X10, CHACON, KD101, BLYSS, FS20, JAMMING")
 		log.Debug(", SubType=", binary.LittleEndian.Uint16(m[13:]))
 		log.Debug(", Id=", binary.LittleEndian.Uint32(m[15:]))
 
