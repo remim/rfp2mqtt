@@ -543,11 +543,19 @@ func decode(l int, m []byte) {
 		jsonString = jsonString + "\" , \"n\": \"" + topicSplit[1]
 		jsonString = jsonString + "\" , \"r\": \"" + sensor.Ref
 		jsonString = jsonString + "\" , \"q\": \"" + qualifierString
+		jsonString = jsonString + "\" , \"st\": \"" + sensor.SubType
 		jsonString = jsonString + "\" , \"ftamper\": \"" + testBit(m[19], 0)  // tamper flag
 		jsonString = jsonString + "\" , \"falarm\": \"" + testBit(m[19], 1)   // alarm flag
 		jsonString = jsonString + "\" , \"flowbatt\": \"" + testBit(m[19], 2) // low batt flag
 		jsonString = jsonString + "\" , \"falive\": \"" + testBit(m[19], 3)   // supervisor message flag
-		jsonString = jsonString + "\" , \"st\": \"" + sensor.SubType
+
+		if sensor.SubType == "1" { // only for Code Secure devices
+			jsonString = jsonString + "\" , \"fa1\": \"" + testBit(m[19], 4) // additional flag 1
+			jsonString = jsonString + "\" , \"fa2\": \"" + testBit(m[19], 5) // additional flag 2
+			jsonString = jsonString + "\" , \"fa3\": \"" + testBit(m[19], 6) // additional flag 3
+			jsonString = jsonString + "\" , \"fa4\": \"" + testBit(m[19], 7) // additional flag 4
+		}
+
 		jsonString = jsonString + "\" }"
 
 	case infosType3:
