@@ -716,10 +716,10 @@ func decode(l int, m []byte) {
 		log.Debug(", idChannel=", binary.LittleEndian.Uint16(m[17:]) & 0x000F)
 		log.Debug(", qualifier=", binary.LittleEndian.Uint16(m[19:]))
 		log.Debug(", energy=", binary.LittleEndian.Uint32(m[21:]))
-		log.Debug(", power=", binary.LittleEndian.Uint32(m[25:]))
-		log.Debug(", powerI1=", binary.LittleEndian.Uint32(m[27:]))
-		log.Debug(", powerI2=", binary.LittleEndian.Uint32(m[29:]))
-		log.Debug(", powerI3=", binary.LittleEndian.Uint32(m[31:]))
+		log.Debug(", power=", binary.LittleEndian.Uint16(m[25:]))
+		log.Debug(", powerI1=", binary.LittleEndian.Uint16(m[27:]))
+		log.Debug(", powerI2=", binary.LittleEndian.Uint16(m[29:]))
+		log.Debug(", powerI3=", binary.LittleEndian.Uint16(m[31:]))
 
 		sensor.Ref = "8-" + strconv.FormatUint(uint64(touint32(binary.LittleEndian.Uint16(m[15:]), binary.LittleEndian.Uint16(m[17:]))), 10)
 		sensor.Protocol = "OWL"
@@ -732,10 +732,10 @@ func decode(l int, m []byte) {
 		log.Debug(", topic=", sensor.Topic)
 
 		energyString := strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[21:])), 10)
-		powerString := strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[25:])), 10)
-		powerI1String := strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[27:])), 10)
-		powerI2String := strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[29:])), 10)
-		powerI3String := strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[31:])), 10)
+		powerString := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[25:])), 10)
+		powerI1String := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[27:])), 10)
+		powerI2String := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[29:])), 10)
+		powerI3String := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[31:])), 10)
 
 		topicSplit := strings.Split(sensor.Topic, "/")
 
