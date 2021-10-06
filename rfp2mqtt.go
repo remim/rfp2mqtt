@@ -476,9 +476,9 @@ func decode(l int, m []byte) {
 	case infosType0:
 		log.Debug(", X10, DOMIA_LITE, PARROT")
 		log.Debug(", SubType=", binary.LittleEndian.Uint16(m[13:]))
-		log.Debug(", Id=", binary.LittleEndian.Uint32(m[15:]))
+		log.Debug(", Id=", binary.LittleEndian.Uint16(m[15:]))
 
-		sensor.Ref = strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[13:])), 10)
+		sensor.Ref = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Protocol = "X10"
 		sensor.SubType = strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[13:])), 10)
 		sensor.Name = sensorName(sensor.Ref)
