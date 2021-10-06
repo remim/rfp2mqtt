@@ -981,13 +981,13 @@ func decode(l int, m []byte) {
 		sensor.Name = sensorName(sensor.Ref)
 		sensor.Topic = sensorTopic(sensor.Ref)
 		if sensor.Topic == "NULL" {
-			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/jamming"
+			sensor.Topic = conf.GetString("brockermqtt.topicroot") + "/" + sensor.Name + "/edisio"
 		}
 		log.Debug(", topic=", sensor.Topic)
 
 		qualifierString := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[19:])), 10)
 		modelString := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[21:]) & 0x00FF), 10)
-		battLvlString := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[22:]) & 0x00FF), 10)
+		battLvlString := strconv.FormatFloat(float64(binary.LittleEndian.Uint16(m[22:]) & 0x00FF)*0.1, 'f', 1, 64)
 		dataString := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[23:])), 10)
 
 		topicSplit := strings.Split(sensor.Topic, "/")
