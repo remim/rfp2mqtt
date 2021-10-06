@@ -741,22 +741,26 @@ func decode(l int, m []byte) {
 
 		energyString := strconv.FormatUint(uint64(binary.LittleEndian.Uint32(m[21:])), 10)
 		powerString := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[25:])), 10)
-		powerI1String := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[27:])), 10)
-		powerI2String := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[29:])), 10)
-		powerI3String := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[31:])), 10)
 
 		topicSplit := strings.Split(sensor.Topic, "/")
 
 		jsonString = "{ \"tc\": \"" + timecodeString
 		jsonString = jsonString + "\" , \"n\": \"" + topicSplit[1]
 		jsonString = jsonString + "\" , \"r\": \"" + sensor.Ref
-		jsonString = jsonString + "\" , \"e\": \"" + energyString
-		jsonString = jsonString + "\" , \"p\": \"" + powerString
-		jsonString = jsonString + "\" , \"pi1\": \"" + powerI1String
-		jsonString = jsonString + "\" , \"pi2\": \"" + powerI2String
-		jsonString = jsonString + "\" , \"pi3\": \"" + powerI3String
 		jsonString = jsonString + "\" , \"flowbatt\": \"" + testBit(m[19], 0) // low batt flag
 		jsonString = jsonString + "\" , \"st\": \"" + sensor.SubType
+		jsonString = jsonString + "\" , \"e\": \"" + energyString
+		jsonString = jsonString + "\" , \"p\": \"" + powerString
+
+		if testBit(m[19], 1) == "1" { // Power on each input 1, 2, 3 are added (CM180i only)
+			powerI1String := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[27:])), 10)
+			powerI2String := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[29:])), 10)
+			powerI3String := strconv.FormatUint(uint64(binary.LittleEndian.Uint16(m[31:])), 10)
+			jsonString = jsonString + "\" , \"pi1\": \"" + powerI1String
+			jsonString = jsonString + "\" , \"pi2\": \"" + powerI2String
+			jsonString = jsonString + "\" , \"pi3\": \"" + powerI3String
+		}
+
 		jsonString = jsonString + "\" }"
 
 	case infosType9:
